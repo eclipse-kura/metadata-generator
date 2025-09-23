@@ -1,0 +1,24 @@
+diff --git a/src/metadata_generator/__init__.py b/src/metadata_generator/__init__.py
+index f484573..ef44582 100644
+--- a/src/metadata_generator/__init__.py
++++ b/src/metadata_generator/__init__.py
+@@ -85,6 +85,8 @@ def main():
+ 
+     modules = []
+     for pom in content:
++        logging.debug("Processing pom.xml file: {}".format(pom))
++
+         # Read pom.xml file content
+         tree = ET.parse(pom)
+         root = tree.getroot()
+@@ -104,7 +106,9 @@ def main():
+             with open(build_properties, 'rb') as f:
+                 jprops.load(f)
+ 
+-            found_sources = jprops.get("source..").data.split(',')
++            found_sources = []
++            if jprops.get("source..") and jprops.get("source..").data:
++                found_sources = jprops.get("source..").data.split(',')
+ 
+             for source in found_sources:
+                 if os.path.isdir(os.path.join(os.path.dirname(pom), source)):
