@@ -1,6 +1,6 @@
 [project]
 name = "metadata-generator"
-version = "0.2.1"
+version = "0.2.2"
 description = "Kura projects metadata generator"
 readme = "README.md"
 authors = [
