@@ -64,6 +64,19 @@ After generating the metadata files, you can open the project in VSCode and inst
 - [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 - [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 
+> [!WARNING]
+> Known failure condition: **Eclipse PDE support for VS Code** is fatally broken when paired with **Language Support for Java** versions newer than `1.54.0`. See [Known issue: PDE extension dependency bug](#known-issue-pde-extension-dependency-bug) before installing.
+
+#### Known issue: PDE extension dependency bug
+
+**Eclipse PDE support for VS Code** fails to resolve dependencies when paired with **Language Support for Java** versions newer than `1.54.0`. Details, root cause, and manual patch instructions: [`docs/PDE_DEPENDENCY_BUG.md`](docs/PDE_DEPENDENCY_BUG.md).
+
+There are three workaround options:
+
+1. **(Recommended)** Install the prebuilt patched extension: [`docs/vscode-pde-0.11.2.vsix`](docs/vscode-pde-0.11.2.vsix).
+2. Install **Eclipse PDE support for VS Code** from the Marketplace and patch it yourself. See `docs/PDE_DEPENDENCY_BUG.md` for instructions.
+3. **(Not recommended)** Install **Language Support for Java** version `1.54.0` instead of the latest release.
+
 #### Example setup
 
 Here follows an example of how to setup a project in VSCode using the metadata generator:
